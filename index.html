@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <audio autoplay="autopaly">
+  <audio id= "audioElement" autoplay="autopaly">
     <source src="520.mp3" type="audio/mp3" />
   </audio>
   <div id="main">
@@ -33,7 +33,7 @@
     <div id="wrap">
       <div id="text">
         <div id="code">
-          <font color="#FF0000"> <span class="say">渡的过山河星辰，淌不过你的一笑一颦</span><br>
+          <font color="#FF0000"> <span class="say">This is a test</span><br>
             <span class="say"> </span><br>
             <span class="say"> 经丘寻壑不及你，尾生抱柱也无悔意</span><br>
             <span class="say"></span><br>
@@ -62,6 +62,7 @@
   </script>
   <script>
     (function () {
+      
       var canvas = $('#canvas');
 
       if (!canvas[0].getContext) {
@@ -111,11 +112,11 @@
 
       function myGreeting() {
         console.log("greetings");
+        audioElement.play();
         hold = 0;
           canvas.unbind("click");
           canvas.unbind("mousemove");
-          canvas.removeClass('hand');
-          canvas.toggleClass('hand', seed.hover(x, y));
+          canvas.removeClass('hand');          
       }
 
       var tree = new Tree(canvas[0], width, height, opts);
