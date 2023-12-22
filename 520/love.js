@@ -72,6 +72,8 @@
     }
   }
 
+
+
   Seed = function (tree, point, scale, color) {
     this.tree = tree;
 
@@ -95,7 +97,7 @@
   Seed.prototype = {
     draw: function () {
       this.drawHeart();
-      this.drawText();
+      // this.drawText();
     },
     addPosition: function (x, y) {
       this.cirle.point = this.cirle.point.add(new Point(x, y));

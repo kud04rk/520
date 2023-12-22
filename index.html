@@ -50,13 +50,10 @@
             <span class="say"> 我们的路还很长，一起努力走下去，为了我们更好的未来！</span><br>
             <span class="say"></span><br>
             <span class="say"></span><br>
-            <span class="say"><span class="space"></span> --- 爱你的猪猪 --- </span> </font>
+            <span class="say"><span class="space"></span> --- 爱你的猪猪 --- </span>
+          </font>
           </p>
         </div>
-      </div>
-      <div id="clock-box"> <span class="STYLE1"></span>
-        <font color="#ff5e04">可爱的小猪猪，我喜欢你</font> <span class="STYLE1">已经是……</span>
-        <div id="clock"></div>
       </div>
       <canvas id="canvas" width="1100" height="680"></canvas>
     </div>
@@ -80,7 +77,7 @@
         seed: {
           x: width / 2 - 20,
           color: "rgb(190, 26, 37)",
-          scale: 2
+          scale: 5
         },
         branch: [
           [535, 680, 570, 250, 500, 200, 30, 100, [
@@ -112,27 +109,20 @@
         }
       }
 
+      function myGreeting() {
+        console.log("greetings");
+        hold = 0;
+          canvas.unbind("click");
+          canvas.unbind("mousemove");
+          canvas.removeClass('hand');
+          canvas.toggleClass('hand', seed.hover(x, y));
+      }
+
       var tree = new Tree(canvas[0], width, height, opts);
       var seed = tree.seed;
       var foot = tree.footer;
       var hold = 1;
-
-      canvas.click(function (e) {
-        var offset = canvas.offset(), x, y;
-        x = e.pageX - offset.left;
-        y = e.pageY - offset.top;
-        if (seed.hover(x, y)) {
-          hold = 0;
-          canvas.unbind("click");
-          canvas.unbind("mousemove");
-          canvas.removeClass('hand');
-        }
-      }).mousemove(function (e) {
-        var offset = canvas.offset(), x, y;
-        x = e.pageX - offset.left;
-        y = e.pageY - offset.top;
-        canvas.toggleClass('hand', seed.hover(x, y));
-      });
+      var myTimeout = setTimeout(myGreeting, 3000);
 
       var seedAnimate = eval(Jscex.compile("async", function () {
         seed.draw();
